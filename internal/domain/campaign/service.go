@@ -9,11 +9,17 @@ type Service struct {
 }
 
 func (s *Service) Create(newCampaignReq contract.NewCampaignReq) (string, error) {
-	campaign, _ := NewCampaign(
+	campaign, err := NewCampaign(
 		newCampaignReq.Name,
 		newCampaignReq.Content,
 		newCampaignReq.Emails,
 	)
-	s.Repository.Save(campaign)
+	if err != nil {
+		return "", err
+	}
+	err = s.Repository.Save(campaign)
+	if err != nil {
+		return "", err
+	}
 	return campaign.ID, nil
 }

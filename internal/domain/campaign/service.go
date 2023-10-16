@@ -2,6 +2,7 @@ package campaign
 
 import (
 	"github.com/danilocordeirodev/go-email/internal/contract"
+	internalerrors "github.com/danilocordeirodev/go-email/internal/internalErrors"
 )
 
 type Service struct {
@@ -19,7 +20,7 @@ func (s *Service) Create(newCampaignReq contract.NewCampaignReq) (string, error)
 	}
 	err = s.Repository.Save(campaign)
 	if err != nil {
-		return "", err
+		return "", internalerrors.ErrInternal
 	}
 	return campaign.ID, nil
 }

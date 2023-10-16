@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/danilocordeirodev/go-email/internal/contract"
+	internalerrors "github.com/danilocordeirodev/go-email/internal/internalErrors"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )
@@ -84,5 +85,5 @@ func Test_Save_Campaign_ValidateRepositorySave(t *testing.T) {
 
 	_, err := service.Create(newCampaignReq)
 
-	assert.Equal("error to save on database", err.Error())
+	assert.True(errors.Is(internalerrors.ErrInternal, err))
 }

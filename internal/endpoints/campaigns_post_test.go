@@ -9,18 +9,10 @@ import (
 	"testing"
 
 	"github.com/danilocordeirodev/go-email/internal/contract"
+	internalmock "github.com/danilocordeirodev/go-email/internal/test/mock"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )
-
-type serviceMock struct {
-	mock.Mock
-}
-
-func (s *serviceMock) Create(newCampaignReq contract.NewCampaignReq) (string, error) {
-	args := s.Called(newCampaignReq)
-	return args.String(0), args.Error(1)
-}
 
 func Test_CampaignsPost_should_save_new_campaign(t *testing.T) {
 	assert := assert.New(t)
@@ -29,7 +21,7 @@ func Test_CampaignsPost_should_save_new_campaign(t *testing.T) {
 		Content: "Hi content",
 		Emails:  []string{"test@test.com"},
 	}
-	service := new(serviceMock)
+	service := new(internalmock.CampaignServiceMock)
 	service.On("Create", mock.MatchedBy(func(request contract.NewCampaignReq) bool {
 		if request.Name == body.Name {
 			return true
@@ -57,7 +49,7 @@ func Test_CampaignsPost_should_inform_error_when_exists(t *testing.T) {
 		Content: "Hi content",
 		Emails:  []string{"test@test.com"},
 	}
-	service := new(serviceMock)
+	service := new(internalmock.CampaignServiceMock)
 	service.On("Create", mock.Anything).Return("", fmt.Errorf("error"))
 	handler := Handler{CampaignService: service}
 	var buf bytes.Buffer

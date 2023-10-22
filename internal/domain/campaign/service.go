@@ -5,11 +5,15 @@ import (
 	internalerrors "github.com/danilocordeirodev/go-email/internal/internalErrors"
 )
 
-type Service struct {
+type Service interface {
+	Create(newCampaignReq contract.NewCampaignReq) (string, error)
+}
+
+type ServiceImp struct {
 	Repository Repository
 }
 
-func (s *Service) Create(newCampaignReq contract.NewCampaignReq) (string, error) {
+func (s *ServiceImp) Create(newCampaignReq contract.NewCampaignReq) (string, error) {
 	campaign, err := NewCampaign(
 		newCampaignReq.Name,
 		newCampaignReq.Content,

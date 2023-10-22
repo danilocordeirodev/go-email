@@ -11,6 +11,6 @@ func (c *CampaignRepository) Save(campaign *campaign.Campaign) error {
 	return nil
 }
 
-func (c *CampaignRepository) FindAll() []campaign.Campaign {
-	return c.campaigns
+func (c *CampaignRepository) FindAll() ([]campaign.Campaign, error) {
+	return c.campaigns, nil
 }

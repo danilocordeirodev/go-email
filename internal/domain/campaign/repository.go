@@ -2,5 +2,5 @@ package campaign
 
 type Repository interface {
 	Save(campaign *Campaign) error
-	FindAll() []Campaign
+	FindAll() ([]Campaign, error)
 }

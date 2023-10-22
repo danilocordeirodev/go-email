@@ -20,8 +20,8 @@ func (r *repositoryMock) Save(campaign *Campaign) error {
 }
 
 
-func (r *repositoryMock) FindAll() []Campaign {
-	return nil
+func (r *repositoryMock) FindAll() ([]Campaign, error) {
+	return nil, nil
 }
 
 var (

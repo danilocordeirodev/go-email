@@ -21,3 +21,19 @@ func (s *CampaignServiceMock) GetBy(id string) (*contract.CampaignResponse, erro
 	}
 	return args.Get(0).(*contract.CampaignResponse), args.Error(1)
 }
+
+func (s *CampaignServiceMock) Cancel(id string) error {
+	args := s.Called(id)
+	if args.Error(1) != nil {
+		return args.Error(0)
+	}
+	return args.Error(0)
+}
+
+func (s *CampaignServiceMock) Delete(id string) error {
+	args := s.Called(id)
+	if args.Error(1) != nil {
+		return args.Error(0)
+	}
+	return args.Error(0)
+}

@@ -1,10 +1,16 @@
 POST  http://localhost:3000/campaigns
 
 {
-    "name": "22",
-    "content": "change0",
-    "emails": ["test@test.com"]
+    "name": "2 sjhksjh ",
+    "content": "JHNJJKNKNH",
+    "emails": ["test8@test.com"]
 }
 
 #####
-GET  http://localhost:3000/campaigns
+GET  http://localhost:3000/campaigns/cku15pggnduii08i0p7g
+
+###
+PATCH   http://localhost:3000/campaigns/cancel/cku15pggnduii08i0p7g
+
+###
+DELETE   http://localhost:3000/campaigns/cku30uggnduv7ouvl44g

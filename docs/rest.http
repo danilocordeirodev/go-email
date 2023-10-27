@@ -3,14 +3,14 @@ POST  http://localhost:3000/campaigns
 {
     "name": "2 sjhksjh ",
     "content": "JHNJJKNKNH",
-    "emails": ["test8@test.com"]
+    "emails": ["test8@test.com", "uhduhfd@hh.com"]
 }
 
 #####
-GET  http://localhost:3000/campaigns/cku30uggnduv7ouvl44g
+GET  http://localhost:3000/campaigns/cku3868gndujt4rqoho0
 
 ###
 PATCH   http://localhost:3000/campaigns/cancel/cku15pggnduii08i0p7g
 
 ###
-DELETE   http://localhost:3000/campaigns/cku30uggnduv7ouvl44g
+DELETE   http://localhost:3000/campaigns/cku3868gndujt4rqoho0

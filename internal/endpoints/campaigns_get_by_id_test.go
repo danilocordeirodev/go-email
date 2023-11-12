@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/danilocordeirodev/go-email/internal/contract"
-	internalmock "github.com/danilocordeirodev/go-email/internal/test/mock"
+	internalmock "github.com/danilocordeirodev/go-email/internal/test/internal-mock"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )
